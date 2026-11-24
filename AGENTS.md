@@ -1,5 +1,25 @@
 # AGENTS.md
 
+## Reglas para agentes de IA (leer primero)
+
+- Antes de proponer o escribir código, leé `ARCHITECTURE.md`, `Backlog.md`
+  y `docs/api.md`. Las decisiones que están ahí ya se tomaron: no las cambies.
+- Usá solo lo visto en la cursada de DDSO. El material de la cátedra está en
+  https://ezequieljsosa.github.io/ddso-unsam/ : consultalo antes de elegir un
+  patrón, una estructura o un nombre.
+- Capas de Fowler como se vieron en clase (Presentación → Service → Dominio →
+  Fuente de datos), Spring Boot, JPA + H2, JUnit 5 + Mockito.
+- No introduzcas Clean Architecture, hexagonal/ports & adapters, CQRS,
+  microservicios, motores de búsqueda externos ni librerías que no estén en el
+  `pom.xml` del template, salvo que el grupo lo pida.
+- El Service orquesta pero no decide: las reglas de negocio van en la entidad
+  (evitar dominio anémico).
+- Trabajá solo en el issue asignado, en una rama propia, y abrí PR a `main`.
+  Nunca commitees directo a `main`.
+- No escribas tokens ni secretos en el repo (el del bot va en `TELEGRAM_BOT_TOKEN`).
+- Si algo no está en la consigna, en los docs ni en el material de la cátedra,
+  preguntá en vez de inventarlo.
+
 Convenciones de este proyecto (Spring Boot + H2 + JPA).
 
 Para la descripción del dominio y la arquitectura general (actores, alcance, diagramas C4), ver
