@@ -1,5 +1,6 @@
 package ar.edu.unsam.ddso.tp.model;
 
+import ar.edu.unsam.ddso.tp.model.exceptions.PieceNameRequiredException;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,4 +40,18 @@ public class Piece {
 
     @OneToMany(mappedBy = "piece", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Digitalization> digitalizations = new ArrayList<>();
+
+    /**
+     * Creates a new piece. The name is required and the load date is assigned by the system (today).
+     */
+    public static Piece create(String name, String description) {
+        if (name == null || name.isBlank()) {
+            throw new PieceNameRequiredException();
+        }
+        Piece piece = new Piece();
+        piece.name = name;
+        piece.description = description;
+        piece.loadDate = LocalDate.now();
+        return piece;
+    }
 }
