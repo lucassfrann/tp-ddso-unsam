@@ -54,4 +54,14 @@ public class Piece {
         piece.loadDate = LocalDate.now();
         return piece;
     }
+
+    /**
+     * Adds a digitalization (URL + description) to this piece and returns it. The digitalization
+     * validates its own data.
+     */
+    public Digitalization addDigitalization(String url, String description) {
+        Digitalization digitalization = Digitalization.create(this, url, description);
+        digitalizations.add(digitalization);
+        return digitalization;
+    }
 }
