@@ -30,6 +30,16 @@ class DigitalizationTest {
     }
 
     @Test
+    void urlIsStoredWithoutSurroundingSpaces() {
+        // When
+        Digitalization digitalization =
+                Digitalization.create(piece, "  https://archive.org/scan-1.png  ", "Front scan");
+
+        // Then
+        assertEquals("https://archive.org/scan-1.png", digitalization.getUrl());
+    }
+
+    @Test
     void pieceRegistersTheDigitalizationItAdds() {
         // When
         Digitalization digitalization =

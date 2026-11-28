@@ -6,7 +6,7 @@ Errores: **400** invariante de dominio, **404** recurso no encontrado, **409** t
 | Método | Ruta | Qué hace |
 |---|---|---|
 | `POST` | `/pieces` | Alta de una pieza. Fecha de carga la asigna el sistema. Nombre obligatorio. |
-| `POST` | `/pieces/{id}/digitalizations` | Asocia una digitalización (URL válida + descripción) a la pieza. 404 si la pieza no existe. |
+| `POST` | `/pieces/{id}/digitalizations` | Asocia una digitalización (URL `http`/`https` válida + descripción) a la pieza. 201 con la digitalización creada (`DigitalizationResponseDTO`, `tags` vacía). 400 si la URL es inválida o falta la descripción. 404 si la pieza no existe. |
 | `GET` | `/tags` | Lista el conjunto de tags (`TagResponseDTO`), para ver de cuáles se puede elegir. 200. |
 | `POST` | `/tags` | Crea un tag. Nombre único y no vacío. 201. |
 | `PUT` | `/tags/{id}` | Renombra el tag (la asociación sigue por id). 200. 404 si no existe; 409 si el nombre ya está usado. |
